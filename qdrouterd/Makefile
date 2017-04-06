@@ -1,5 +1,6 @@
 PROJECT_NAME=qdrouterd
-ROUTER_SOURCE_URL=http://github.com/apache/qpid-dispatch/archive/master.tar.gz
+#ROUTER_SOURCE_URL=http://github.com/apache/qpid-dispatch/archive/master.tar.gz
+ROUTER_SOURCE_URL=http://people.redhat.com/~ulilleen/master.tar.gz
 
 include ../Makefile.common
 
