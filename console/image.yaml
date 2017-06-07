@@ -1,0 +1,36 @@
+version: latest
+release: dev
+name: enmasseproject/console
+from: centos:7
+user: 185
+dogen:
+    version: "2.0.0rc15"
+cmd:
+    - "node"
+    - "/opt/app-root/src/bin/console_server.js"
+packages:
+    - java-1.8.0-openjdk-devel
+    
+sources:    
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/console-latest.tar.gz
+
+scripts:
+    - package: epel-node
+      exec: install
+    - package: console
+      exec: install
+    - package: console
+      exec: prepare.sh
+
+envs:
+    information:
+        - name: "JAVA_HOME"
+          value: "/usr/lib/jvm/java"    
+        - name: "NODE_PATH"
+          value: "/usr/lib/node_modules"
+        - name: "DISTRO_NAME"
+          value: "console-latest"     
+ports:
+    - value: 56720 
+    - value: 8080
+    - value: 80
